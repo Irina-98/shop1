@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -21,18 +22,27 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
+
 Route::get('/', function () {
     return redirect()->route('home');
 })->name('main');
 
-Route::get('/test', function () {
+
+/*Route::get('/test', function () {
         return 'Вы на тестовой странице';// название страницы, возврат на страницу
 });
+
+/*Route::get('/pageuser', function () {
+    return 'СПИСОК ПОЛЬЗОВАТЕЛЕЙ';// название страницы,пробная - можно удалить
+});*/
 
 Route::prefix('home')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');// обработка страницы хоум это индекс в хоумконтрол
     Route::get('/profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
     Route::post('/profile/update', [HomeController::class, 'profileUpdate'])->name('profileUpdate');
+
+
 });
 
 Route::prefix('basket')->group(function () {
@@ -48,7 +58,7 @@ Route::get('/orders', [OrderController::class, 'index'])->name('orders');
 /*Route::any('/{any}', function () {
    return redirect(route('main'));
 })->where('any', '.*');
-*/ 
+*/
 //обработка страниц, возвращает на главную страницу. можно войти только в хоум и главная
 
 
@@ -77,21 +87,31 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
 
     /*Route::get('/', function () {
         return redirect(route('adminProducts'));
-        
+
     });
     */
 
     Route::get('/', [AdminController::class, 'index'])->name('admin');//админка
     Route::get('/enterAsUser/{userId}', [AdminController::class, 'enterAsUser'])->name('enterAsUser');
     Route::post('/exportCategories', [AdminController::class, 'exportCategories'])->name('exportCategories');
+    Route::get('/pageuser', [AdminController::class, 'pageuser']);// марш. перехода со стр. на стр. список пользователей
+    Route::get('/spisokсategory', [AdminController::class, 'spisokсategory']);
+    Route::get('/mapproduct', [AdminController::class, 'mapproduct']);
+    Route::post('/exportProducts', [ProductController::class, 'export'])->name('exportProducts');
+
+
+
+
+
+
 
     Route::get('/products', function () {
         return 'Админка: продукты';
     })->name('adminProducts');
 
-    
 
-});
 
+
+    });
 
 

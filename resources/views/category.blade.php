@@ -48,7 +48,7 @@
         <div class="col-3 mb-4">
             <a href="/">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{asset('storage/img/products')}}/{{$product->picture}}" class="card-img-top" alt="{{$product->picture}}">
+                    <img src="{{asset('storage/img/products')}}/{{$product->picture}}" width="285" height="189" class="card-img-top" alt="{{$product->picture}}">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$product->name}}

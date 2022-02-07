@@ -101,16 +101,18 @@
                 @foreach ($user->addresses as $address)
                     <span>
                         @if ($address->main)
+           
+                        <input checked id="{{$address->id}}" type="radio" name="main_address" value="{{$address->id}}"> 
                         <label for="{{$address->id}}">
                             {{$address->address}}
                         </label>
-                        <input checked id="{{$address->id}}" type="radio" name="main_address" value="{{$address->id}}"> 
                             
                     @else
+                        
+                        <input id="{{$address->id}}" type="radio" name="main_address" value="{{$address->id}}">
                         <label for="{{$address->id}}">
                             {{$address->address}}
                         </label>
-                        <input id="{{$address->id}}" type="radio" name="main_address" value="{{$address->id}}">
                             
                         @endif
                     </span>

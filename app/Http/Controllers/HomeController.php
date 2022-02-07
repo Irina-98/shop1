@@ -127,6 +127,6 @@ class HomeController extends Controller
         session()->flash('profileUpdated');
         return back();
     }
-}
 
-  
+    
+}
