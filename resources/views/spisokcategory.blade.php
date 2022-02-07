@@ -8,22 +8,26 @@
     <div class="container">
         <div class="row justify-content-center">
                 СПИСОК КАТЕГОРИЙ
-            <table class="table table-borderd mb-5">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Название</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
 
+            <table class="table table-borderd mb-5">
+                <tbody>
+                @foreach($category as $category)
+                    <tr>
+                        <td>{{$category->id}}</td>
+                        <td>{{$category->name}}</td>
+
+                        <td>
+                            <a href="{{ route('category', $category->id) }}">
+                                Войти
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
 
 
-
-        </div>
-    </div>
-    @if (session('startExportCategories'))
+        @if (session('startExportCategories'))
         <div class="alert alert-success">
             Выгрузка категорий запущена
         </div>
@@ -35,9 +39,9 @@
         </form>
 
 
-        <a href="/admin/pageuser">СТРАНИЦА ПОЛЬЗОВАТЕЛЕЙ</a>
+        <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
         <br>
         <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
 
-</div>
+
 @endsection
