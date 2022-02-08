@@ -10,18 +10,28 @@
                 СПИСОК КАТЕГОРИЙ
 
             <table class="table table-borderd mb-5">
+
+                <thead>
+                    <th>
+                    <th>id</th>
+                    <th>Название</th>
+                    <th>Переход к категории</th>
+
+                </thead>
                 <tbody>
                 @foreach($category as $category)
-                    <tr>
+
+                    <td>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
 
                         <td>
                             <a href="{{ route('category', $category->id) }}">
-                                Войти
+                                Перейти к категории
                             </a>
                         </td>
                     </tr>
+                    </th>
                 @endforeach
                 </tbody>
             </table>

@@ -7,7 +7,7 @@
 @section('content')
 
 
-<a href="/admin/pageuser">СТРАНИЦА ПОЛЬЗОВАТЕЛЕЙ</a>
+<a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
 <br>
 <a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
 @endsection

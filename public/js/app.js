@@ -5278,7 +5278,164 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      categories: [{
+        id: 1,
+        name: 'Процессоры'
+      }, {
+        id: 2,
+        name: 'Видеокарты'
+      }, {
+        id: 3,
+        name: 'Жесткие диски'
+      }],
+      counter: 0,
+      showText: true,
+      name: '',
+      translitedName: '',
+      firstName: 'Rail',
+      lastName: 'Mingaliev',
+      isSuccess: false
+    };
+  },
+  computed: {
+    buttonClass: function buttonClass() {
+      return this.isSuccess ? 'btn-success' : 'btn-info';
+    },
+    translited: function translited() {
+      return this.translit(this.name);
+    },
+    fullName: function fullName() {
+      return this.firstName + ' ' + this.lastName;
+    }
+  },
+  methods: {
+    clickCounter: function clickCounter() {
+      this.counter++;
+      this.sayHello();
+      this.isSuccess = true;
+    },
+    sayHello: function sayHello() {
+      console.log('Hello');
+    },
+    sayMyName: function sayMyName() {
+      console.log("My name is " + this.name + '!');
+      console.log("My name is ".concat(this.name, "!"));
+    },
+    magic: function magic() {
+      this.translitedName = this.translit(this.name); //this.name = answer
+    },
+    translit: function translit(word) {
+      var converter = {
+        ' ': '',
+        'q': 'й',
+        'w': 'ц',
+        'e': 'у',
+        'r': 'к',
+        't': 'е',
+        'y': 'н',
+        'u': 'г',
+        'i': 'ш',
+        'o': 'щ',
+        'p': 'з',
+        '[': 'х',
+        ']': 'ъ',
+        'a': 'ф',
+        's': 'ы',
+        'd': 'в',
+        'f': 'а',
+        'g': 'п',
+        'h': 'р',
+        'j': 'о',
+        'k': 'л',
+        'l': 'д',
+        ';': 'ж',
+        "'": 'э',
+        'z': 'я',
+        'x': 'ч',
+        'c': 'с',
+        'v': 'м',
+        'b': 'и',
+        'n': 'т',
+        'm': 'ь',
+        ',': 'б',
+        '.': 'ю',
+        'Q': 'Й',
+        'W': 'Ц',
+        'E': 'У',
+        'R': 'К',
+        'T': 'Е',
+        'Y': 'Н',
+        'U': 'Г',
+        'I': 'Ш',
+        'O': 'Щ',
+        'P': 'З',
+        '{': 'Х',
+        '}': 'Ъ',
+        'A': 'Ф',
+        'S': 'Ы',
+        'D': 'В',
+        'F': 'А',
+        'G': 'П',
+        'H': 'Р',
+        'J': 'О',
+        'K': 'Л',
+        'L': 'Д',
+        ':': 'Ж',
+        '"': 'Э',
+        'Z': 'Я',
+        'X': 'ч',
+        'C': 'С',
+        'V': 'М',
+        'B': 'И',
+        'N': 'Т',
+        'M': 'Ь',
+        '<': 'Б',
+        '>': 'Ю'
+      };
+      var answer = '';
+
+      for (var i = 0; i < word.length; ++i) {
+        if (converter[word[i]] == undefined) {
+          answer += word[i];
+        } else {
+          answer += converter[word[i]];
+        }
+      }
+
+      return answer;
+    },
+    showTranslited: function showTranslited() {
+      return this.translit(this.name);
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -5304,11 +5461,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       categories: [],
-      counter: 0
+      counter: 0,
+      showText: false
     };
   },
   methods: {
@@ -28003,28 +28166,111 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("Список категорий")]),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-primary", on: { click: _vm.clickCounter } },
+      [_vm._v("CLICK " + _vm._s(_vm.counter))]
+    ),
+    _vm._v(" "),
+    _vm.showText || _vm.counter > 3
+      ? _c(
+          "span",
+          {
+            on: {
+              click: function ($event) {
+                _vm.showText = false
+              },
+            },
+          },
+          [_vm._v("\n        Some text\n    ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Здравствуйте, " + _vm._s(_vm.fullName) + " ")]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-bordered" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.categories, function (category, idx) {
+          return _c("tr", { key: idx }, [
+            _c("td", [_vm._v(_vm._s(category.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(category.name))]),
+          ])
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.name,
+          expression: "name",
+        },
+      ],
+      staticClass: "form-control",
+      domProps: { value: _vm.name },
+      on: {
+        input: [
+          function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.name = $event.target.value
+          },
+          _vm.magic,
+        ],
+      },
+    }),
+    _vm._v("\n    " + _vm._s(_vm.name) + "\n    "),
+    _c("br"),
+    _vm._v(
+      "\n    " +
+        _vm._s(
+          _vm.name
+            ? _vm.name.split("").reverse().join("")
+            : "Строка пока что пустая"
+        ) +
+        "\n    "
+    ),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.translitedName) + "\n    "),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.showTranslited()) + "\n    "),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.translited) + "\n    "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn",
+        class: _vm.buttonClass,
+        attrs: { disabled: !_vm.isSuccess },
+        on: { click: _vm.sayMyName },
+      },
+      [_vm._v("Назови мое имя")]
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
-          ]),
-        ]),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Наименование")]),
       ]),
     ])
   },
@@ -28059,6 +28305,8 @@ var render = function () {
       { staticClass: "btn btn-primary", on: { click: _vm.clickCounter } },
       [_vm._v("CLICK " + _vm._s(_vm.counter))]
     ),
+    _vm._v(" "),
+    _vm.showText ? _c("span", [_vm._v("\n        Текст\n    ")]) : _vm._e(),
   ])
 }
 var staticRenderFns = []
