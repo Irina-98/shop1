@@ -80,6 +80,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::get('/home/test', [HomeController::class, 'test']);
 
 Route::get('/categories/{category}', [CategoryController::class, 'category'])->name('category');
+Route::get('/categories/{category}/getProducts', [CategoryController::class, 'getProducts']);
 
 Route::prefix('admin')->middleware('is_admin')->group(function () {
 

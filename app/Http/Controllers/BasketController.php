@@ -39,9 +39,9 @@ class BasketController extends Controller
 
         return view('basket', compact('products', 'mainAddress', 'email', 'name'));
     }
-    
-    
-    public function add () 
+
+
+    public function add ()
     {
         $id = request('id');
         $products = session('products', []);
@@ -52,7 +52,9 @@ class BasketController extends Controller
         }
        session()->put('products', $products);
        session()->save();
-       return back();
+        return [
+            'quantity' => $products[$id]
+        ];
     }
 
     public function remove()
@@ -67,14 +69,16 @@ class BasketController extends Controller
             $products[$id] -= 1;
         }
     } catch (Exception $e) {
-   
+
         Log::info("Нажали на кнопку минус, когда товара не было в корзине {$id}");
     }
-    
+
 
        session()->put('products', $products);
        session()->save();
-       return back();
+        return [
+            'quantity' => $products[$id] ?? 0
+        ];
     }
 
     public function createOrder (Request $request)
@@ -120,7 +124,7 @@ class BasketController extends Controller
                 'price' => $product->price
             ]);
 
-            /* session()->forget('products'); return back(); 
+            /* session()->forget('products'); return back();
             - очистить сессию - продукты из корзины
             */
 
@@ -169,7 +173,7 @@ class BasketController extends Controller
                 $input = null;
             }
         }
- 
+
         return $input ? substr(str_shuffle($input), 0, $lenght) : null;
     }
 }
