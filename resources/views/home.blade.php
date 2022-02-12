@@ -6,8 +6,6 @@
 
 @section('content')
 
-
-
     <div class="container">
       @auth
         Вы это читаете, потому что вы авторизованы
