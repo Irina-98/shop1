@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <template v-if="loading">
-                <img style="width: 50 px; height: 25px;" src='/storage/img/loaders/loader.gif'>
+                <img style="width: 30px; height: 30px;" src='/storage/img/loaders/loader.gif'>
             </template>
             <div v-else v-for="product in products" :key="product.id" class="col-3 mb-4">
                 <!--<a href="/"> должна быть ссылка на страницу продуктов-->
