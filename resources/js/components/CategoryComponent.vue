@@ -2,19 +2,20 @@
     <div>
         <div class="row">
             <template v-if="loading">
-                <img style="width: 50px; height: 25px;" src='/storage/img/loaders/loader.gif'>
+                <img style="width: 50 px; height: 25px;" src='/storage/img/loaders/loader.gif'>
             </template>
             <div v-else v-for="product in products" :key="product.id" class="col-3 mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img :src="'/storage/img/products/' + product.picture" width="290" height="198" class="card-img-top" :alt="product.name">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{product.name}}
-                        </h5>
-                        <p class="card-text">
-                            {{ product.description }}
-                        </p>
-                        <div class="card-basket-buttons">
+                <!--<a href="/"> должна быть ссылка на страницу продуктов-->
+                    <div class="card" style="width: 18rem;">
+                        <img :src="'/storage/img/products/' + product.picture" width="290" height="198" class="card-img-top" :alt="product.name">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{product.name}}
+                            </h5>
+                                <p class="card-text">
+                                    {{ product.description }}
+                                </p>
+                            <div class="card-basket-buttons">
                             <button
                                 v-if="product.quantity > 0"
                                 @click="basket(product.id, 'remove', product.quantity)"
@@ -27,20 +28,21 @@
                                 :disabled="product.quantity == 0"
                                 class="btn btn-danger">
                                 -
-                            </button>
+                            </button>                                 
                             <div class="card-basket-quantity">
-                                {{product.quantity}}
+                                 {{product.quantity}}
                             </div>
-                            <button @click="basket(product.id, 'add')" type="submit" class="btn btn-success">+</button>
-                        </div>
-
-                        <div class="card-price">
-                            {{product.price}} руб.
+                                <button @click="basket(product.id, 'add')" type="submit" class="btn btn-success">+</button>
+                            </div>
+                            
+                            <div class="card-price">
+                                {{product.price}} руб.
+                            </div>
                         </div>
                     </div>
-                </div>
+                <!--</a>-->    
             </div>
-        </div>
+        </div>  
     </div>
 </template>
 
@@ -77,7 +79,7 @@ export default {
     mounted () {
         axios.get(`/categories/${this.categoryId}/getProducts`)
             .then(response => {
-                this.products = response.data
+            this.products = response.data
             })
             .catch(error => {
 
