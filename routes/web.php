@@ -28,6 +28,10 @@ Route::get('/', function () {
     return redirect()->route('home');
 })->name('main');
 
+Route::get('/test', function () {
+    return view('test');
+});
+
 
 /*Route::get('/test', function () {
         return 'Вы на тестовой странице';// название страницы, возврат на страницу
