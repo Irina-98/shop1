@@ -31,11 +31,12 @@ class BasketController extends Controller
         $products = collect($ids)->map(function ($quantity, $id) {
             $product = Product::find($id);
             return [
+                'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
                 'quantity' => $quantity
             ];
-        });
+        })->values();
 
         return view('basket', compact('products', 'mainAddress', 'email', 'name'));
     }
