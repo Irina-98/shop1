@@ -73,6 +73,7 @@ export default {
                     this.products[idx].quantity = data.quantity
                     this.$store.dispatch('changeBasketProductsQuantity', data.basketProductsQuantity)
                 })
+                
 
         }
     },

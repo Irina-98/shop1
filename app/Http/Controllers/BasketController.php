@@ -54,7 +54,8 @@ class BasketController extends Controller
        session()->put('products', $products);
        session()->save();
         return [
-            'quantity' => $products[$id]
+            'quantity' => $products[$id],
+            'basketProductsQuantity' => collect($products)->sum()
         ];
     }
 
@@ -78,7 +79,8 @@ class BasketController extends Controller
        session()->put('products', $products);
        session()->save();
         return [
-            'quantity' => $products[$id] ?? 0
+            'quantity' => $products[$id] ?? 0,
+            'basketProductsQuantity' => collect($products)->sum()
         ];
     }
 
