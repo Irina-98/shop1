@@ -51,4 +51,8 @@ class CategoriesExportFinishEvent implements ShouldBroadcast
   //    return 'categories-export-finish';//было my-event, указываем событие по названию
   //} не обязательный метод, можно не указывать и слать все  на канал
 
+  public function broadcastAs()
+    {
+        return 'categories-export-finish';// название события в Pusher будет указано именно оно
+    }
 }
