@@ -24,7 +24,11 @@
         </table>
         @if (session('startExportCategories'))
         <div class="alert alert-success">
-            Выгрузка категорий запущена
+            Выгружаем категории
+            <!--<div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div> запуск спиннера-->
+            
         </div>
         @endif
 

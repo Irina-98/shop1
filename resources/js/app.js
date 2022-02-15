@@ -24,6 +24,8 @@ Vue.component('home-component', require('./components/HomeComponent.vue').defaul
 Vue.component('category-component', require('./components/CategoryComponent.vue').default);
 Vue.component('basket-component', require('./components/BasketComponent.vue').default);
 Vue.component('navbar-basket-component', require('./components/NavBarBasketComponent.vue').default);
+Vue.component('login-component', require('./components/Auth/LoginComponent.vue').default);
+Vue.component('register-component', require('./components/Auth/RegisterComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <!--<div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -68,6 +68,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+    <login-component
+    route-password-request="{{route('password.request')}}"
+        route-login="{{route('login')}}"
+    >
+    </login-component>
 </div>
 @endsection
