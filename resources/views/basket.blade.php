@@ -48,7 +48,7 @@
                 @empty
                     <tr>
                         <td class="text-center" colspan="4">
-                            Опаньки, а корзина то что-то пуста. Айда пополнять))) <a href="{{route('home')}}">покупать!</a>
+                            Опаньки, а корзина то что-то пуста. Айда <a href="{{route('home')}}">покупать!</a>
                         </td>
                     </tr>
                 @endforelse
@@ -75,7 +75,7 @@
             <label>Имя</label>
             <input name='name' class="form-control mb-2" value="{{$name}}">
 
-            <label>Адресс</label>
+            <label>Адрес</label>
             <input name='address' class="form-control mb-2" value="{{$mainAddress->address ?? ''}}">
 
             <label>Почта</label>

@@ -1,6 +1,14 @@
 @extends ('layouts.app')
 
-@section('style')
+@section('content')
+    
+       <div class="row">
+            <category-component :category-id="{{$category->id}}"></category-component>
+
+
+
+
+ <!--@section('style')
     <style>
         a:active,
         a:hover,
@@ -80,7 +88,7 @@
             </a>    
         </div>           
         @endforeach
-    </div> 
+    </div> -->
 </div>
     
 @endsection

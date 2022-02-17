@@ -5,25 +5,35 @@
 @endsection
 
 @section('content')
-
-<home-component></home-component>
     
-    <div class="container">
+    <div class="container" style="background: linear-gradient(45deg, black, transparent);            
+            ">
       @auth
-        Вы это читаете, потому что вы авторизованы
+      <h6 style="
+            color: khaki;
+            ">Вы это читаете, потому что вы авторизованы
+      </h6>
     @endauth
 
     @guest
-        Пожалуйста, авторизуйтесь
+    <h5 style="
+            color: springgreen;
+            ">Пожалуйста, авторизуйтесь
+    </h5>
     @endguest 
 
         @if ($showTitle)   
-            <h1>{{$title}}</h1>
+            <h1 style="
+            color: lime;text-align: center;
+            ">&#8493 СПИСОК КАТЕГОРИЙ &#8493
+                </h1>
         @else
             Нет заголовка   
-        @endif                  
+        @endif  
+        
+        <home-component source="blade_templade" :categories="{{$categories}}" ></home-component>
                 
-    <div class="row">
+    <!--<div class="row">
                     @foreach ($categories as $category)
                     <div class="col-3 mb-4">
                         <div class="card" style="width: 18rem; text-align: center">
@@ -40,6 +50,6 @@
                         </div>
                     </div>
                 @endforeach             
-        </div>
+        </div>-->
     </div>
 @endsection

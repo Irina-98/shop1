@@ -29,13 +29,17 @@
         .nav-link-picture {
             padding: 0;
         }
+        body #app {
+            background: linear-gradient(30deg, grey, transparent);
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container" style="background: linear-gradient(40deg, black, transparent);            
+            ">
+                <a class="navbar-brand" style="color:deepskyblue" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
