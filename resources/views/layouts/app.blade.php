@@ -19,8 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
-    
+
+
     @yield('style', '')
     <style>
         .dropdown-login {
@@ -49,17 +49,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                     <!--   <navbar-basket-component></navbar-basket-component>-->
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('basket') }}">
                                 Корзина ({{ array_sum(session('products') ?? []) }})
                             </a>
                     </li>
-                        <!-- Authentication Links -->
+                         <!--Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -72,7 +72,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else                               
+                        @else
                             @if (Auth::user()->roles->pluck('name')->contains('Admin'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin') }}">АДМИНКА</a>
@@ -84,12 +84,12 @@
                                 alt="{{ Auth::user()->name }}"
                                 style="height:40px;border-radius: 100px;border: 1px solid grey;"
                                 src="{{asset('storage/img/users/')}}/{{Auth::user()->picture}}"
-                                > 
-                                
+                                >
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   
+
                                 <span class="dropdown-login">
                                    <strong>{{ Auth::user()->name }}</strong>
                                 </span>

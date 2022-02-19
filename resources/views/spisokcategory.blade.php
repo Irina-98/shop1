@@ -12,6 +12,12 @@
             <table class="table table-borderd mb-5">
 
                 <thead>
+                    <tr>
+                        <th></th>
+                        <th>id</th>
+                        <th>Название</th>
+                        <th>Переход к категории</th>
+                    </tr>
                     <th>
                     <th>id</th>
                     <th>Название</th>
@@ -20,7 +26,7 @@
                 </thead>
                 <tbody>
                 @foreach($category as $category)
-
+                    <tr>
                     <td>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
