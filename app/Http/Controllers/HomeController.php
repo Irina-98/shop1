@@ -89,13 +89,15 @@ class HomeController extends Controller
             $user->picture = $fileName;
         }
 
-        $address = Address::find($input['main_address']);
-        $address->main = 1;
-        $address->save();
-        Address::where('user_id', $user->id)->where('id', '!=', $input['main_address'])->update([
-            'main' => 0
-        ]);
+        if (isset($input['main_address'])) {
+            $address = Address::find($input['main_address']);
+            $address->main = 1;
+            $address->save();
+            Address::where('user_id', $user->id)->where('id', '!=', $input['main_address'])->update([
+                'main' => 0
+            ]);
 
+        }
         if ($input['new_address']) {
 
             if ($input['main_new_address']) {
@@ -127,6 +129,5 @@ class HomeController extends Controller
         session()->flash('profileUpdated');
         return back();
     }
-
-    
+   
 }

@@ -29,13 +29,18 @@
         .nav-link-picture {
             padding: 0;
         }
+        body #app {
+            background: linear-gradient(30deg, grey, transparent);
+        }
+
     </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container" style="background: linear-gradient(40deg, black, transparent);            
+            ">>
+                <a class="navbar-brand" style="color:deepskyblue" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -51,27 +56,29 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ route('basket') }}">
-                                Корзина ({{ array_sum(session('products') ?? []) }})
+                            <a class="nav-link" style="color:blue" href="{{ route('basket') }}">
+                                <b>КОРЗИНА ({{ array_sum(session('products') ?? []) }})</b>
                             </a>
                     </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" style="color:blue" href="{{ route('login') }}">
+                                    <b>{{ __('АВТОРИЗАЦИЯ') }}</b></a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" style="color:blue" href="{{ route('register') }}">
+                                    <b>{{ __('РЕГИСТРАЦИЯ') }}</b></a>
                                 </li>
                             @endif
                         @else                               
                             @if (Auth::user()->roles->pluck('name')->contains('Admin'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin') }}">АДМИНКА</a>
+                                    <a class="nav-link" style="color:blue" href="{{ route('admin') }}"><b>АДМИНКА</b></a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">

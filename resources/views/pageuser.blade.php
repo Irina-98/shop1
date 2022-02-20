@@ -8,6 +8,8 @@
 
 
     <div class="container">
+        <div class="row justify-content-center">
+            СПИСОК ПОЛЬЗОВАТЕЛЕЙ
         <table class="table table-borderd mb-5">
             <tbody>
                 @foreach($users as $user)
@@ -24,11 +26,10 @@
                 @endforeach
             </tbody>
         </table>
-       
-        
+
+
 
     <a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
     <br>
     <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
     @endsection
-    
