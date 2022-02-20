@@ -7,8 +7,11 @@
 @section('content')
 
 
-
-
+    <form method="post" action="{{ route('importProducts') }}">
+            @csrf
+            <button type="submit" class="btn btn-link">Загрузить продукты</button>
+    </form>
+        
 
 <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
 <br>

@@ -211,7 +211,7 @@ Artisan::command('exportCategories', function () {
 
 
 
-    Artisan::command('importCategories', function () {
+    /*Artisan::command('importCategories', function () {
         $fileName = 'categories1.csv';
         $file = fopen($fileName, 'r');
 
@@ -230,8 +230,8 @@ Artisan::command('exportCategories', function () {
                'updated_at' => $now
            ];
        }
-      Category::insert($insert);
-    });
+      Category::insert($insert); перенесено в job
+    });*/
 
 
 

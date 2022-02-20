@@ -32,7 +32,7 @@ class exportCategories implements ShouldQueue
      */
     public function handle()
     {
-        $c = 12 / 0;
+        //$c = 12 / 0;
         $categories = Category::get()->toArray();
         $file = fopen('exportCategories.csv', 'w');
         $columns = [

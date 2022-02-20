@@ -37,6 +37,17 @@
             <button type="submit" class="btn btn-link">Выгрузить продукты</button>
         </form>
     </div>
+        <form method="post" action="{{ route('importCategories') }}">
+            @csrf
+            <button type="submit" class="btn btn-link">Загрузить категории</button>
+        </form>
+
+        <form method="post" action="{{ route('importProducts') }}">
+            @csrf
+            <button type="submit" class="btn btn-link">Загрузить продукты</button>
+        </form>
+
+    
 
 
     <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>

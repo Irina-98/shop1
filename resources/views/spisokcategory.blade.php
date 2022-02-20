@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
                 СПИСОК КАТЕГОРИЙ
@@ -48,10 +49,15 @@
             <button type="submit" class="btn btn-link">Выгрузить категории</button>
         </form>
 
+        <form method="post" action="{{ route('importCategories') }}">
+            @csrf
+            <button type="submit" class="btn btn-link">Загрузить категории</button>
+        </form>
+
 
         <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
         <br>
         <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
 
-
+        
 @endsection
