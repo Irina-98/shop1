@@ -10,7 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class exportCategories implements ShouldQueue
+class ExportCategories implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class exportCategories implements ShouldQueue
      */
     public function handle()
     {
-        //$c = 12 / 0;
+        
         $categories = Category::get()->toArray();
         $file = fopen('exportCategories.csv', 'w');
         $columns = [

@@ -8,9 +8,26 @@
 
 
     <div class="container">
-        <div class="row justify-content-center">
-            СПИСОК ПОЛЬЗОВАТЕЛЕЙ
+        <div class="row justify-content">
+        <h3 style="
+            text-align: center;
+        ">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h3>
+        <br>
+
         <table class="table table-borderd mb-5">
+            
+
+                    
+            <thead>
+                <th>
+                <th>id</th>
+                <th>Имя</th>
+                <th>Электронная почта</th>
+                <th>Перейти к пользователю</th>
+
+            </thead>
+            
+
             <tbody>
                 @foreach($users as $user)
                     <tr>

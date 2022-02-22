@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ExportCategories;
+use App\Jobs\ImportCategories;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -44,6 +46,15 @@ class AdminController extends Controller
 
        public function mapproduct ()
     {
-        return view('mapproduct');
+        $product = Product::get();
+        return view('mapproduct',compact('product'));
+    }
+
+    public function importCategories ()
+    {
+        $exportColumns = true;
+        ImportCategories::dispatch($exportColumns);
+        session()->flash('startImportCategories');
+        return back();
     }
 }

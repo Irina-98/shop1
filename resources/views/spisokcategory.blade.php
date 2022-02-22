@@ -8,7 +8,9 @@
 
     <div class="container">
         <div class="row justify-content-center">
-                СПИСОК КАТЕГОРИЙ
+        <h3 style="
+            text-align: center;
+        ">СПИСОК КАТЕГОРИЙ</h3>
 
             <table class="table table-borderd mb-5">
 
@@ -48,6 +50,12 @@
             @csrf
             <button type="submit" class="btn btn-link">Выгрузить категории</button>
         </form>
+
+        @if (session('startImportCategories'))
+        <div class="alert alert-success">
+            Загрузка категорий запущена
+        </div>
+        @endif
 
         <form method="post" action="{{ route('importCategories') }}">
             @csrf

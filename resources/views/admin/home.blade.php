@@ -37,10 +37,18 @@
             <button type="submit" class="btn btn-link">Выгрузить продукты</button>
         </form>
     </div>
+
+    @if (session('startImportCategories'))
+        <div class="alert alert-success">
+            Загрузка категорий запущена
+        </div>
+        @endif
+
         <form method="post" action="{{ route('importCategories') }}">
             @csrf
             <button type="submit" class="btn btn-link">Загрузить категории</button>
         </form>
+
 
         <form method="post" action="{{ route('importProducts') }}">
             @csrf
