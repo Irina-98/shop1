@@ -52,9 +52,10 @@ class AdminController extends Controller
 
     public function importCategories ()
     {
-        $exportColumns = true;
-        ImportCategories::dispatch($exportColumns);
+        
+        ImportCategories::dispatch();
         session()->flash('startImportCategories');
         return back();
     }
+    
 }

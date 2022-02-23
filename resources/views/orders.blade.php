@@ -20,6 +20,10 @@
                     </ul>
                 </div>
             </div>
+
+            
+            
+    <button type="submit" class="btn btn-primary">Повторить заказ</button>
         @endforeach
     </div>
 @endsection

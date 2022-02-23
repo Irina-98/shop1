@@ -81,35 +81,26 @@ Route::get('/home/test', [HomeController::class, 'test']);
 
 Route::get('/categories/{category}', [CategoryController::class, 'category'])->name('category');
 
-Route::prefix('admin')->middleware('is_admin')->group(function () {
 
-    //Route::redirect('/', '/admin/products');
+
+Route::prefix('admin')->middleware('is_admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');//админка
+    Route::get('/enterAsUser/{userId}', [AdminController::class, 'enterAsUser'])->name('enterAsUser');
+    Route::post('/exportCategories', [AdminController::class, 'exportCategories'])->name('exportCategories');
+    Route::post('/importCategories', [CategoryController::class, 'importCategories'])->name('importCategories');
+    Route::get('/pageuser', [AdminController::class, 'pageuser']);// марш. перехода со стр. на стр. список пользователей
+    Route::get('/spisokсategory', [AdminController::class, 'spisokсategory']);
+    Route::get('/mapproduct', [AdminController::class, 'mapproduct']);
+    Route::post('/exportProducts', [ProductController::class, 'exportProducts'])->name('exportProducts');
+    Route::post('/importProducts', [ProductController::class, 'importProducts'])->name('importProducts');
+     //Route::redirect('/', '/admin/products');
 
     /*Route::get('/', function () {
         return redirect(route('adminProducts'));
 
     });
     */
-
-    Route::get('/', [AdminController::class, 'index'])->name('admin');//админка
-    Route::get('/enterAsUser/{userId}', [AdminController::class, 'enterAsUser'])->name('enterAsUser');
-    Route::post('/exportCategories', [AdminController::class, 'exportCategories'])->name('exportCategories');
-    
-    Route::get('/pageuser', [AdminController::class, 'pageuser']);// марш. перехода со стр. на стр. список пользователей
-    Route::get('/spisokсategory', [AdminController::class, 'spisokсategory']);
-    Route::get('/mapproduct', [AdminController::class, 'mapproduct']);
-    Route::post('/exportProducts', [ProductController::class, 'export'])->name('exportProducts');
-    Route::post('/importProducts', [ProductController::class, 'importProducts'])->name('importProducts');
-    
-    Route::prefix('category')->group(function () {
-        Route::get('/', [AdminController::class, 'getCategory'])->name('admin.category');
-        Route::get('/categoryCreated', [AdminController::class, 'categoryCreated'])->name('categoryCreated');
-        Route::post('/addCategories', [AdminController::class, 'addCategories'])->name('addCategories');
-        Route::post('/importCategories', [AdminController::class, 'importCategories'])->name('importCategories');
-    });
-
-
-    
+      
 
 
 

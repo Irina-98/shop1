@@ -16,8 +16,7 @@
 
         <table class="table table-borderd mb-5">
             
-
-                    
+                  
             <thead>
                 <th>
                 <th>id</th>
@@ -26,8 +25,6 @@
                 <th>Перейти к пользователю</th>
 
             </thead>
-            
-
             <tbody>
                 @foreach($users as $user)
                     <tr>
@@ -40,13 +37,14 @@
                             </a>
                         </td>
                     </tr>
+                </th>
                 @endforeach
             </tbody>
         </table>
 
 
 
-    <a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
+    <a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
     <br>
-    <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
+    <a href="/admin/mapproduct" style="color:blue"><h4>СПИСОК ПРОДУКТОВ</h4></a>
     @endsection

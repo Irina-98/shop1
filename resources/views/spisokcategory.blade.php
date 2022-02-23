@@ -48,7 +48,7 @@
 
         <form method="post" action="{{ route('exportCategories') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Выгрузить категории</button>
+            <button type="submit" class="btn btn-link" style="color:blue"><h5>Выгрузить категории</h5></button>
         </form>
 
         @if (session('startImportCategories'))
@@ -59,13 +59,13 @@
 
         <form method="post" action="{{ route('importCategories') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Загрузить категории</button>
+            <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить категории</h5></button>
         </form>
 
 
-        <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
+        <a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
         <br>
-        <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
+        <a href="/admin/mapproduct" style="color:blue"><h4>СПИСОК ПРОДУКТОВ</h4></a>
 
         
 @endsection

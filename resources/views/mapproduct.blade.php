@@ -20,6 +20,7 @@
                     <th>Название</th>
                     <th>Описание</th>
                     <th>Цена</th>
+                   
 
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@
                         <td>{{$product->description}}</td>
                         <td>{{$product->price}}</td>
 
+                    
                     </td>
                     </tr>
                     </th>
@@ -38,15 +40,19 @@
                 </tbody>
             </table>
 
-
+            @if (session('startImportProducts'))
+        <div class="alert alert-success">
+            Загрузка продуктов запущена
+        </div>
+        @endif
 
     <form method="post" action="{{ route('importProducts') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Загрузить продукты</button>
+            <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить продукты</h5></button>
     </form>
         
 
-<a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
+<a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
 <br>
-<a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
+<a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
 @endsection

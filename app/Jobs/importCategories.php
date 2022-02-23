@@ -33,25 +33,25 @@ class ImportCategories implements ShouldQueue
     public function handle()
     {
         
-            $fileName = 'categories1.csv';
-            $file = fopen($fileName, 'r');
-    
-            $carbon = new Carbon();
-            $now = $carbon->now()->toDateTimeString();
-    
-            $i = 0;
-            $insert = [];
-           while ($data = fgetcsv($file, 1000, ';')) {
-                if ($i++ ==0) continue;
-               $insert[] = [
-                   'name' => $data[0],
-                   'description' => $data[1],
-                   'picture' => $data[2],
-                   'created_at' => $now,
-                   'updated_at' => $now
-               ];
-           }
-          Category::insert($insert);
+        $fileName = 'categories.csv';
+        $file = fopen($fileName, 'r');
+
+        $carbon = new Carbon();
+        $now = $carbon->now()->toDateTimeString();
+
+        $i = 0;
+        $insert = [];
+        while ($data = fgetcsv($file, 1000, ';')) {
+            if ($i++ == 0) continue;
+            $insert[] = [
+                'name' => $data[0],
+                'description' => $data[1],
+                'picture' => $data[2],
+                'created_at' => $now,
+                'updated_at' => $now
+            ];
+        }
+          Category::insert($insert, 'id', ['name','description','picture','created_at','updated_at']);
         
     }
 }

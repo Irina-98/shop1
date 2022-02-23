@@ -30,11 +30,11 @@
 
         <form method="post" action="{{ route('exportCategories') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Выгрузить категории</button>
+            <button type="submit" class="btn btn-link" style="color:blue">Выгрузить категории</button>
         </form>
         <form method="post" action="{{ route('exportProducts') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Выгрузить продукты</button>
+            <button type="submit" class="btn btn-link" style="color:blue">Выгрузить продукты</button>
         </form>
     </div>
 
@@ -46,21 +46,26 @@
 
         <form method="post" action="{{ route('importCategories') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Загрузить категории</button>
+            <button type="submit" class="btn btn-link" style="color:blue">Загрузить категории</button>
         </form>
-
+        
+        @if (session('startImportProducts'))
+        <div class="alert alert-success">
+            Загрузка продуктов запущена
+        </div>
+        @endif
 
         <form method="post" action="{{ route('importProducts') }}">
             @csrf
-            <button type="submit" class="btn btn-link">Загрузить продукты</button>
+            <button type="submit" class="btn btn-link" style="color:blue">Загрузить продукты</button>
         </form>
 
     
 
 
-    <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
+    <a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
     <br>
-    <a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
+    <a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
     <br>
-    <a href="/admin/mapproduct">СПИСОК ПРОДУКТОВ</a>
+    <a href="/admin/mapproduct" style="color:blue"><h4>СПИСОК ПРОДУКТОВ</h4></a>
 @endsection

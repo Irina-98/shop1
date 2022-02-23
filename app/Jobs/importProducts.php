@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,6 +32,26 @@ class ImportProducts implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $fileName = 'products.csv';
+        $file = fopen($fileName, 'r');
+
+        $carbon = new Carbon();
+        $now = $carbon->now()->toDateTimeString();
+
+        $i = 0;
+        $insert = [];
+        while ($data = fgetcsv($file, 1000, ';')) {
+            if ($i++ == 0) continue;
+            $insert[] = [
+                'name' => $data[0],
+                'description' => $data[1],
+                'price' => $data[2],
+                'picture' => $data[3],
+                'category_id' => $data[4],
+                'created_at' => $now,
+                'updated_at' => $now
+            ];
+        }
+        Product::insert($insert, 'id', ['name','description', 'price', 'picture','created_at','updated_at']);
     }
 }
