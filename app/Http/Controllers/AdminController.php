@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ExportCategories;
+use App\Jobs\ExportProducts;
 use App\Jobs\ImportCategories;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,6 +32,8 @@ class AdminController extends Controller
         session()->flash('startExportCategories');
         return back();
     }
+
+    
 
     public function pageuser ()
     {

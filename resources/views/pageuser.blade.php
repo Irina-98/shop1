@@ -16,16 +16,15 @@
 
         <table class="table table-borderd mb-5">
             
-                  
             <thead>
-                <th>
+                <th style="text-align: left">
                 <th>id</th>
                 <th>Имя</th>
                 <th>Электронная почта</th>
                 <th>Перейти к пользователю</th>
 
             </thead>
-            <tbody>
+            <tbody style="text-align: end">
                 @foreach($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>

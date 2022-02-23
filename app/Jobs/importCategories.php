@@ -51,7 +51,7 @@ class ImportCategories implements ShouldQueue
                 'updated_at' => $now
             ];
         }
-          Category::insert($insert, 'id', ['name','description','picture','created_at','updated_at']);
+          Category::insert($insert);
         
     }
 }
