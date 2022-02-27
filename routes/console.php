@@ -212,7 +212,7 @@ Artisan::command('exportCategories', function () {
 
 
     /*Artisan::command('importCategories', function () {
-        $fileName = 'categories1.csv';
+        $fileName = 'categories.csv';
         $file = fopen($fileName, 'r');
 
         $carbon = new Carbon();

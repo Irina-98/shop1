@@ -32,7 +32,7 @@ class ExportProducts implements ShouldQueue
     public function handle()
     {
         $products = Product::get()->toArray();
-        $file = fopen('products.csv', 'w');
+        $file = fopen('exportProducts.csv', 'w');
         $columns = [
             'id',
             'name',

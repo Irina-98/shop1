@@ -62,6 +62,12 @@
             <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить категории</h5></button>
         </form>
 
+        <p>
+        <a class="dropdown"style="color:darkblue" href="{{ route('categoryCreated') }}">
+        <b></b>
+        <h5>Добавить категорию&#10148;</h5></a>
+        </p>
+
 
         <a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
         <br>

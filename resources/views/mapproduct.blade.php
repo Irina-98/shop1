@@ -50,6 +50,13 @@
             @csrf
             <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить продукты</h5></button>
     </form>
+
+    <p>
+    <a class="dropdown" style="color:darkblue" href="{{ route('productCreated') }}">
+    <b></b>
+    <h5>Добавить продукт&#10148;</h5></a>
+    </p>
+    <br>
         
 
 <a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>

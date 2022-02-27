@@ -52,6 +52,6 @@ class ImportProducts implements ShouldQueue
                 'updated_at' => $now
             ];
         }
-        Product::insert($insert, 'id', ['name','description', 'price', 'picture','created_at','updated_at']);
+        Product::insert($insert);
     }
 }

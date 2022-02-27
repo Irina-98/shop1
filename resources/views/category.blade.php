@@ -8,7 +8,7 @@
 
 
 
- <!--@section('style')
+<!-- @section('style')
     <style>
         a:active,
         a:hover,
@@ -88,7 +88,8 @@
             </a>    
         </div>           
         @endforeach
-    </div> -->
+    </div>-->
+
 </div>
     
 @endsection

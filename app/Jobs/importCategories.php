@@ -39,19 +39,22 @@ class ImportCategories implements ShouldQueue
         $carbon = new Carbon();
         $now = $carbon->now()->toDateTimeString();
 
+       
         $i = 0;
         $insert = [];
         while ($data = fgetcsv($file, 1000, ';')) {
             if ($i++ == 0) continue;
-            $insert[] = [
+                $insert[] = [
                 'name' => $data[0],
                 'description' => $data[1],
                 'picture' => $data[2],
                 'created_at' => $now,
-                'updated_at' => $now
-            ];
-        }
-          Category::insert($insert);
+                'updated_at' => $now,
+                
+            ]; 
+        } 
         
+          Category::insert($insert);
+         
     }
 }

@@ -86,11 +86,15 @@ Route::get('/categories/{category}', [CategoryController::class, 'category'])->n
 Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');//админка
     Route::get('/enterAsUser/{userId}', [AdminController::class, 'enterAsUser'])->name('enterAsUser');
+    Route::get('/categoryCreated', [AdminController::class, 'categoryCreated'])->name('categoryCreated');
+    Route::post('/addCategories', [AdminController::class, 'addCategories'])->name('addCategories');
     Route::post('/exportCategories', [AdminController::class, 'exportCategories'])->name('exportCategories');
     Route::post('/importCategories', [CategoryController::class, 'importCategories'])->name('importCategories');
     Route::get('/pageuser', [AdminController::class, 'pageuser']);// марш. перехода со стр. на стр. список пользователей
     Route::get('/spisokсategory', [AdminController::class, 'spisokсategory']);
     Route::get('/mapproduct', [AdminController::class, 'mapproduct']);
+    Route::get('/productCreated', [AdminController::class, 'productCreated'])->name('productCreated');
+    Route::post('/addProducts', [AdminController::class, 'addProducts'])->name('addProducts');
     Route::post('/exportProducts', [ProductController::class, 'exportProducts'])->name('exportProducts');
     Route::post('/importProducts', [ProductController::class, 'importProducts'])->name('importProducts');
      //Route::redirect('/', '/admin/products');
