@@ -37,12 +37,11 @@ class ImportCategories implements ShouldQueue
         $file = fopen($fileName, 'r');
 
         $carbon = new Carbon();
-        $now = $carbon->now()->toDateTimeString();
-
-       
+        $now = $carbon->now()->toDateTimeString();      
         $i = 0;
         $insert = [];
         while ($data = fgetcsv($file, 1000, ';')) {
+           
             if ($i++ == 0) continue;
                 $insert[] = [
                 'name' => $data[0],
@@ -50,7 +49,6 @@ class ImportCategories implements ShouldQueue
                 'picture' => $data[2],
                 'created_at' => $now,
                 'updated_at' => $now,
-                
             ]; 
         } 
         

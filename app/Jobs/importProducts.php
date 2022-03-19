@@ -42,6 +42,7 @@ class ImportProducts implements ShouldQueue
         $insert = [];
         while ($data = fgetcsv($file, 1000, ';')) {
             if ($i++ == 0) continue;
+        
             $insert[] = [
                 'name' => $data[0],
                 'description' => $data[1],

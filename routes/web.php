@@ -41,16 +41,19 @@ Route::prefix('home')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');// обработка страницы хоум это индекс в хоумконтрол
     Route::get('/profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
     Route::post('/profile/update', [HomeController::class, 'profileUpdate'])->name('profileUpdate');
-
+    Route::post('/repeatOrder', [OrderController::class, 'repeatOrder'])->name('repeatOrder');
 
 });
 
 Route::prefix('basket')->group(function () {
     Route::get('/', [BasketController::class, 'index'])->name('basket');
     Route::post('/createOrder', [BasketController::class, 'createOrder'])->name('createOrder');
+    
+
     Route::prefix('product')->group(function () {
         Route::post('/add', [BasketController::class, 'add'])->name('addProduct');
         Route::post('/remove', [BasketController::class, 'remove'])->name('removeProduct');
+        
     });
 });
 
@@ -60,6 +63,7 @@ Route::get('/orders', [OrderController::class, 'index'])->name('orders');
 })->where('any', '.*');
 */
 //обработка страниц, возвращает на главную страницу. можно войти только в хоум и главная
+
 
 
 Auth::routes();// здесь в 3 позициях указывается на какие страницы можем заходить

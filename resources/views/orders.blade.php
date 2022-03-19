@@ -21,9 +21,13 @@
                 </div>
             </div>
 
+            <form method="POST" action="{{ route('repeatOrder') }}">
+                @csrf
+                    <input name="order_id" type="hidden" value="{{ $order->id }}">
+                    <button type="submit" class="btn btn-primary">Повторить заказ</button>
+            </form>
             
-            
-    <button type="submit" class="btn btn-primary">Повторить заказ</button>
+    
         @endforeach
     </div>
 @endsection

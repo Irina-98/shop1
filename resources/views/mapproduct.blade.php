@@ -40,6 +40,18 @@
                 </tbody>
             </table>
 
+            @if (session('startExportProducts'))
+        <div class="alert alert-success">
+            Выгрузка продуктов запущена
+        </div>
+        @endif
+
+        <form method="post" action="{{ route('exportProducts') }}">
+            @csrf
+            <button type="submit" class="btn btn-link" style="color:blue"><h5>Выгрузить продукты</h5></button>
+        </form>
+        </div>
+
             @if (session('startImportProducts'))
         <div class="alert alert-success">
             Загрузка продуктов запущена
