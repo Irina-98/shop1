@@ -8,6 +8,11 @@
 
 
     <div class="container">
+        <div class="row justify-content">
+        <h3 style="
+            text-align: center;
+        ">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h3>
+        <br>
 
         <table class="table table-borderd mb-5">
             
@@ -38,9 +43,7 @@
 
 
 
-
     <a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
-    <br>
     <br>
     <a href="/admin/mapproduct" style="color:blue"><h4>СПИСОК ПРОДУКТОВ</h4></a>
     @endsection

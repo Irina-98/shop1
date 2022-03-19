@@ -18,7 +18,7 @@ class CheckIsAdmin
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->roles->pluck('name')->contains('Admin')) {
+        if ($user->is_admin) {
             return $next($request);
         } else {
             return redirect()->route('home');

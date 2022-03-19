@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\CategoriesExportFinishEvent;
 use App\Models\Category;
 use App\Models\Role;
 use App\Models\User;
@@ -22,10 +21,7 @@ use my\Helpers\Utils;
 | simple approach to interacting with each command's IO methods.
 |
 */
-Artisan::command('event', function () {
-    event(new CategoriesExportFinishEvent('test'));
 
-});
 
 
 Artisan::command('queryBuilder', function () {

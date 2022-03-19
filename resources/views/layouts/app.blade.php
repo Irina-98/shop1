@@ -19,8 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+    
+    
     @yield('style', '')
     <style>
         .dropdown-login {
@@ -39,7 +39,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container" style="background: linear-gradient(40deg, black, transparent);            
-
+            ">>
                 <a class="navbar-brand" style="color:deepskyblue" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -50,17 +50,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                     <!--   <navbar-basket-component></navbar-basket-component>-->
                     <li class="nav-item">
                             <a class="nav-link" style="color:blue" href="{{ route('basket') }}">
                                 <b>КОРЗИНА ({{ array_sum(session('products') ?? []) }})</b>
                             </a>
                     </li>
-                         <!--Authentication Links -->
+                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -75,7 +75,7 @@
                                     <b>{{ __('РЕГИСТРАЦИЯ') }}</b></a>
                                 </li>
                             @endif
-                        @else
+                        @else                               
                             @if (Auth::user()->roles->pluck('name')->contains('Admin'))
                                 <li class="nav-item">
                                     <a class="nav-link" style="color:blue" href="{{ route('admin') }}"><b>АДМИНКА</b></a>
@@ -87,12 +87,12 @@
                                 alt="{{ Auth::user()->name }}"
                                 style="height:40px;border-radius: 100px;border: 1px solid grey;"
                                 src="{{asset('storage/img/users/')}}/{{Auth::user()->picture}}"
-                                >
-
+                                > 
+                                
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
+                                   
                                 <span class="dropdown-login">
                                    <strong>{{ Auth::user()->name }}</strong>
                                 </span>

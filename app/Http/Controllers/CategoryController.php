@@ -13,13 +13,12 @@ class CategoryController extends Controller
         
         return view('category', compact('category'));// если значение id меняем на другое измени в веб
     }
-    public function getProducts (Category $category)
+    
+    public function importCategories ()
     {
-        $products = $category->products;
-        $basketProducts = session('products');
-        return $products->transform(function ($product) use ($basketProducts) {
-            $product->quantity = $basketProducts[$product->id] ?? 0;
-            return $product;
-        });
+        $exportColumns = true;
+        ImportCategories::dispatch($exportColumns);
+        session()->flash('startImportCategories');
+        return back();
     }
 }

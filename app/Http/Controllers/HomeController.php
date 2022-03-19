@@ -89,6 +89,13 @@ class HomeController extends Controller
             $user->picture = $fileName;
         }
 
+        if (isset($input['main_address'])) {
+            $address = Address::find($input['main_address']);
+            $address->main = 1;
+            $address->save();
+            Address::where('user_id', $user->id)->where('id', '!=', $input['main_address'])->update([
+                'main' => 0
+            ]);
 
         }
         if ($input['new_address']) {
