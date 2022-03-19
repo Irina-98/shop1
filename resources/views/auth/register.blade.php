@@ -15,7 +15,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <!--<div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="background: linear-gradient(20deg, blue, transparent);">
             <div class="card-header" style="
@@ -101,6 +101,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> перенести в RegisterComponent-->
+    <register-component
+    route-register="{{route('register')}}"
+    ></register-component>
 </div>
 @endsection

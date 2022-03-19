@@ -6,72 +6,45 @@
 
 @section('content')
 
+
+<div class="row justify-content-center">
+<h1 class="text-center">СПИСОК ПРОДУКТОВ</h1>
 <div class="container">
-        <div class="row justify-content-center">
-            <h3 style="
-            text-align: center;
-            ">СПИСОК ПРОДУКТОВ</h3>
-
-            <table class="table table-borderd mb-5">
-
-                <thead>
-                    <th>
-                    <th>id</th>
-                    <th>Название</th>
-                    <th>Описание</th>
-                    <th>Цена</th>
-                   
-
-                </thead>
-                <tbody>
-                @foreach($product as $product)
-
-                    <td>
-                        <td>{{$product->id}}</td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->description}}</td>
-                        <td>{{$product->price}}</td>
-
-                    
-                    </td>
-                    </tr>
-                    </th>
-                @endforeach
-                </tbody>
-            </table>
-
-            @if (session('startExportProducts'))
-        <div class="alert alert-success">
-            Выгрузка продуктов запущена
-        </div>
-        @endif
-
-        <form method="post" action="{{ route('exportProducts') }}">
-            @csrf
-            <button type="submit" class="btn btn-link" style="color:blue"><h5>Выгрузить продукты</h5></button>
-        </form>
-        </div>
-
-            @if (session('startImportProducts'))
-        <div class="alert alert-success">
-            Загрузка продуктов запущена
-        </div>
-        @endif
-
-    <form method="post" action="{{ route('importProducts') }}">
-            @csrf
-            <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить продукты</h5></button>
-    </form>
-
-    <p>
-    <a class="dropdown" style="color:darkblue" href="{{ route('productCreated') }}">
-    <b></b>
-    <h5>Добавить продукт&#10148;</h5></a>
-    </p>
-    <br>
         
+            
+        <table class="table table-borderd mb-5">
 
-<a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
+<table class="zigzag" text-align: center>
+  <thead>
+    <tr>
+      <th class="header">#</th>
+      <th class="header">Наименование</th>
+      <th class="header">Цена</th>
+      <th class="header">Latest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wayne Rooney</td>
+      <td>53</td>
+      <td>06 Sep 2003</td>
+      <td>27 Jun 2016</td>
+    </tr>
+    <tr>
+      <td>Bobby Charlton</td>
+      <td>49</td>
+      <td>19 Apr 1958</td>
+      <td>20 May 1970</td>
+    </tr>
+  
+    
+    
+  </tbody>
+</table>
+
+
+<a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
 <br>
-<a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
+<a href="/admin/spisokсategory">СПИСОК КАТЕГОРИЙ</a>
+>>>>>>> origin/master
 @endsection

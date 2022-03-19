@@ -20,7 +20,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
+    <!--<div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="background: linear-gradient(20deg, cyan, transparent);
 ">
@@ -89,7 +89,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+    <login-component
+    route-password-request="{{route('password.request')}}"
+        route-login="{{route('login')}}"
+    >
+    </login-component>
 </div>
 
 

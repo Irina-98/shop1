@@ -25,7 +25,11 @@
 
         @if (session('startExportCategories'))
         <div class="alert alert-success">
-            Выгрузка категорий запущена
+            Выгружаем категории
+            <!--<div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div> запуск спиннера-->
+            
         </div>
         @endif
 
@@ -56,37 +60,15 @@
             @csrf
             <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить категории</h5></button>
         </form>
-        
-        @if (session('startImportProducts'))
-            <div class="alert alert-success">
-                Загрузка продуктов запущена
-            </div>
-        @endif
 
-        <form method="post" action="{{ route('importProducts') }}">
-            @csrf
-            <button type="submit" class="btn btn-link" style="color:blue"><h5>Загрузить продукты</h5></button>
-        </form>
+    </div>
 
-       
 
-   
-    <p>
-    <a class="dropdown"style="color:darkblue" href="{{ route('categoryCreated') }}">
-    <b></b>
-    <h5>Добавить категорию&#10148;</h5></a>
-    </p>
+    <a href="/admin/pageuser">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a>
 
-    <p>
-    <a class="dropdown" style="color:darkblue" href="{{ route('productCreated') }}">
-    <b></b>
-    <h5>Добавить продукт&#10148;</h5></a>
-    </p>
     <br>
 
     <a href="/admin/pageuser" style="color:blue"><h4>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h4></a>
     <br>
-    <a href="/admin/spisokсategory" style="color:blue"><h4>СПИСОК КАТЕГОРИЙ</h4></a>
-    <br>
-    <a href="/admin/mapproduct" style="color:blue"><h4>СПИСОК ПРОДУКТОВ</h4></a>
+
 @endsection

@@ -15,6 +15,7 @@
             <table class="table table-borderd mb-5">
 
                 <thead>
+
                     <th>
                     <th>id</th>
                     <th>Название</th>

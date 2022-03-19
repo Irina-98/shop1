@@ -8,11 +8,6 @@
 
 
     <div class="container">
-        <div class="row justify-content">
-        <h3 style="
-            text-align: center;
-        ">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h3>
-        <br>
 
         <table class="table table-borderd mb-5">
             
@@ -40,6 +35,7 @@
                 @endforeach
             </tbody>
         </table>
+
 
 
 

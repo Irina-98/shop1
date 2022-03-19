@@ -9,10 +9,7 @@
     <div class="container" style="background: linear-gradient(45deg, black, transparent);            
             ">
       @auth
-        <h6 style="
-            color: khaki;
-            ">Вы это читаете, потому что вы авторизованы
-        </h6>
+
     @endauth
 
     @guest
@@ -23,9 +20,7 @@
     @endguest 
 
         @if ($showTitle)   
-        <h1 style="
-            color: lime;text-align: center;
-            ">&#10070 СПИСОК КАТЕГОРИЙ &#10070
+
                 </h1>
         @else
             Нет заголовка   
